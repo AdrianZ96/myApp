@@ -21,7 +21,7 @@ countbtn.addEventListener(("click"), () => {
 
   watchedDbEp.textContent = suma;
   countDbEp.textContent = lastEp;
-  console.log(suma)
+  overall();
 } )
 revWatchEp.addEventListener(("click"),() => {
   if(watchedDb <= 0){
@@ -32,7 +32,7 @@ watchedDb = wynik;
 const lastEp = dbEp - wynik;
 watchedDbEp.textContent = wynik;
 countDbEp.textContent = lastEp;
-
+overall();
 }) 
 
 const epDbz = 291;
@@ -52,6 +52,7 @@ addEp.addEventListener("click", () =>{
   const lastsEp = epDbz - suma;
   watchedZ.textContent = suma;
   lastsZ.textContent = lastsEp;
+  overall();
 })
 
 undoEp.addEventListener("click" , () =>{
@@ -63,6 +64,7 @@ undoEp.addEventListener("click" , () =>{
   const lasts = epDbz - wynik;
   watchedZ.textContent = wynik;
   lastsZ.textContent = lasts;
+  overall();
 
 })
 const epDbgt = 64;
@@ -82,6 +84,7 @@ addGT.addEventListener("click", () =>{
   const lastsEp = epDbgt - suma;
   watchedGT.textContent = suma;
   lastsGT.textContent = lastsEp;
+  overall();
 })
 
 undoGT.addEventListener("click" , () =>{
@@ -93,5 +96,19 @@ undoGT.addEventListener("click" , () =>{
   const lasts = epDbgt - wynik;
   watchedGT.textContent = wynik;
   lastsGT.textContent = lasts;
+  overall();
   
 })
+
+const watchedOverAll = document.querySelector("#watchedOverall")
+const allEp = document.querySelector("#allEp")
+const episodes = epDbgt + epDbz + dbEp;
+
+function overall(){
+  const watched = watchedDb + watchedDbgt + watchedDbz;
+  watchedOverAll.textContent = watched;
+  const lastsEps = episodes - watched;
+  allEp.textContent = lastsEps;
+  
+}
+overall();
